@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -20,9 +21,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
 SECRET_KEY = 'django-insecure-@uyft!jk!ok!**8ytiuf&vb-z5x(k%^=#^u@#fdru70b!nlmuv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -31,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'adminlte2_pdq',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,3 +126,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Define where to redirect after Login
+LOGIN_REDIRECT_URL = "adminlte2_pdq:home"
+
+# AdminLte2 PDQ Settings
+
+ADMINLTE2_USE_LOGIN_REQUIRED = True
+ADMINLTE2_HOME_ROUTE = "adminlte2_pdq:home"
+ADMINLTE2_LOGO_TEXT = "Ticket Tracking"
+ADMINLTE2_LOGO_TEXT_SMALL = "TT"
+
+ADMINLTE2_INCLUDE_ADMIN_HOME_LINK = True
+ADMINLTE2_INCLUDE_MIN_NAV_ON_ADMIN_PAGES = True
+ADMINLTE2_INCLUDE_ADMIN_NAV_ON_MAIN_PAGES = True
