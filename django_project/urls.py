@@ -18,12 +18,15 @@ from django.urls import path, include
 
 urlpatterns = [
 
-    # AdmineLte2 default routes for demo purposes
-    path('', include('adminlte2_pdq.urls')),
+    # URLs for the ticket app
+    path("projects/", include("tickets.urls")),
 
     # Django Account routes - styled in AdminLTE2
     path('accounts/', include("django.contrib.auth.urls")),
-    
+
     # Admin - Styled in Django, but hosted in AdminLTE2 layout
     path('admin/', admin.site.urls),
+
+    # AdmineLte2 default routes for demo purposes
+    path('', include('adminlte2_pdq.urls')),
 ]
