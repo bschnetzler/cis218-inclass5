@@ -1,1 +1,115 @@
 {% extends 'adminlte2/base.html' %}
+
+{% block title %}
+    Projects
+{% endblock title %}
+
+{% block page_name %}
+    Projects
+{% endblock page_name %}
+
+{% block page_description %}
+    All Projects Available in the System
+{% endblock page_description %}
+
+{% block breadcrumbs %}
+    <ol class="breadcrumb">
+        <li>
+            <a href="{% url 'adminlte2_pdq:home' %}">
+                <i class="fa fa-dashboard">
+                </i>
+                Home
+            </a>
+        </li>
+        <li class="active">
+            <a href="{% url 'project_list' %}">
+                <i class="fa fa-archive">
+                </i>
+                Projects
+            </a>
+        </li>
+    </ol>
+{% endblock breadcrumbs %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{% url 'project_create' %}" class="btn btn-success pull-right">
+                <i class="fa fa-plus">
+                </i>
+                New Project
+            </a>
+        </div>
+    </div>
+    <br>
+    {% for project in project_list %}
+        <div class="box box-solid box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">
+                    {{ project.name }}
+                </h3>
+            </div>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="{% url 'project_detail' project.pk %}" class="btn btn-primary btn-block">
+                            View Project Details
+                        </a>
+                        <br>
+                        <a href="{% url 'project_update' project.pk %}" class="btn btn-info btn-block">
+                            Update Project Details
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-blue">
+                                <i class="fa fa-ticket">
+                                </i>
+                            </span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">
+                                    Open Tickets
+                                </span>
+                                <span class="info-box-number">
+                                    {{ project.open_tickets.count }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-purple">
+                                <i class="fa fa-ticket">
+                                </i>
+                            </span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">
+                                    Closed Tickets
+                                </span>
+                                <span class="info-box-number">
+                                    {{ project.closed_tickets.count }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-aqua">
+                                <i class="fa fa-user">
+                                </i>
+                            </span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">
+                                    Members
+                                </span>
+                                <span class="info-box-number">
+                                    {{ project.members.count }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content %}

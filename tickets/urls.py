@@ -36,6 +36,6 @@ urlpatterns = [
         ProjectDetailView.as_view(),
         name = "project_detail",
     ),
-    path("/new/", ProjectCreateView.as_view(), name = "project_create"),
+    path("new/", ProjectCreateView.as_view(), name = "project_create"),
     path("", ProjectListView.as_view(), name = "project_list"),
 ]
