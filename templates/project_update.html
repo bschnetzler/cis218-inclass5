@@ -1,12 +1,16 @@
 {% extends 'adminlte2/base.html' %}
+{% load adminlte_tags %}
 
 {% block title %}
+    Projects - Update
 {% endblock title %}
 
 {% block page_name %}
+    Update Project
 {% endblock page_name %}
 
 {% block page_description %}
+    Update an existing project in the system.
 {% endblock page_description %}
 
 {% block breadcrumbs %}
@@ -18,15 +22,37 @@
                 Home
             </a>
         </li>
-        <li class="active">
+        <li class="">
             <a href="{% url 'project_list' %}">
                 <i class="fa fa-archive">
                 </i>
                 Projects
             </a>
         </li>
+        <li class="active">
+            {{ project.name }}
+        </li>
+        <li class="active">
+            Edit
+        </li>
     </ol>
 {% endblock breadcrumbs %}
 
 {% block content %}
+    <div class="box box-solid box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                Update Project
+            </h3>
+        </div>
+        <div class="box-body">
+            <form action="" method="post">
+                {% csrf_token %}
+                {% render_form form %}
+                <button type="submit" class="btn btn-success">
+                    Save
+                </button>
+            </form>
+        </div>
+    </div>
 {% endblock content %}

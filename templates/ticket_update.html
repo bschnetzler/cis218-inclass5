@@ -2,15 +2,15 @@
 {% load adminlte_tags %}
 
 {% block title %}
-    Projects - Create
+    {{ project.name }} - Tickets - Update
 {% endblock title %}
 
 {% block page_name %}
-    Create Project
+    {{ project.name }} - Update Ticket
 {% endblock page_name %}
 
 {% block page_description %}
-    Create a new project in the system.
+    Update a Ticket for project {{ project.name }}
 {% endblock page_description %}
 
 {% block breadcrumbs %}
@@ -29,8 +29,20 @@
                 Projects
             </a>
         </li>
+        <li class="">
+            <a href="{% url 'project_detail' project.pk %}">
+                {{ project.name }}
+            </a>
+        </li>
+        <li class="">
+            <a href="{% url 'project_detail' project.pk %}">
+                <i class="fa fa-ticket">
+                </i>
+                Tickets
+            </a>
+        </li>
         <li class="active">
-            New
+            {{ ticket.name }}
         </li>
     </ol>
 {% endblock breadcrumbs %}
@@ -39,7 +51,7 @@
     <div class="box box-solid box-primary">
         <div class="box-header with-border">
             <h3 class="box-title">
-                Create Project
+                Update Tickets
             </h3>
         </div>
         <div class="box-body">
@@ -47,7 +59,7 @@
                 {% csrf_token %}
                 {% render_form form %}
                 <button type="submit" class="btn btn-success">
-                    Create
+                    Update
                 </button>
             </form>
         </div>

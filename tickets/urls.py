@@ -6,21 +6,21 @@ from .views import (
     ProjectDetailClosedView,
     ProjectUpdateView,
     ProjectListView,
-    # TicketCreateView,
-    # TicketEditView,
+    TicketCreateView,
+    TicketEditView,
 )
 
 urlpatterns = [
-    # path(
-    #     "<int:project_pk>/ticket/<int:pk>/edit/",
-    #     TicketEditView.as_view(),
-    #     name = "ticket_update"
-    # ),
-    # path(
-    #     "<int:project_pk>/ticket/new/",
-    #     TicketCreateView.as_view(),
-    #     name = "ticket_create",
-    # ),
+    path(
+        "<int:project_pk>/ticket/<int:pk>/edit/",
+        TicketEditView.as_view(),
+        name = "ticket_update"
+    ),
+    path(
+        "<int:project_pk>/ticket/new/",
+        TicketCreateView.as_view(),
+        name = "ticket_create",
+    ),
     path(
         "<int:pk>/update/",
         ProjectUpdateView.as_view(),
